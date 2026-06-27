@@ -67,7 +67,7 @@ npm install
 Create a `.env.local` file and add your API key:
 
 ```env
-API_KEY=your_api_key_here
+API_KEY=rc_live_5e4e74661a9146dda205620b7bfd182d
 ```
 
 Start the development server:
