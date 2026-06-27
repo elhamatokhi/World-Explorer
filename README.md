@@ -64,7 +64,7 @@ Install dependencies:
 npm install
 ```
 
-Create a `.env.local` file and add your API key:
+Create a `.env.local` file and add this API key:
 
 ```env
 API_KEY=rc_live_5e4e74661a9146dda205620b7bfd182d
