@@ -10,7 +10,6 @@ function checkResponse(response, responseName) {
       `Failed to fetch ${responseName}. Status: ${response.status}`,
     );
   }
-
   return response;
 }
 
@@ -24,8 +23,6 @@ export async function getCountries(limit = 20) {
   const payload = await checkResponse(res, "countries").json();
 
   const countries = payload.data?.objects ?? [];
-
-//   console.log("Countries:", countries);
 
   return countries.slice(0, limit);
 }
@@ -48,8 +45,6 @@ export async function getCountryByCode(code) {
 
   const country = payload.data?.objects?.[0] ?? null;
 
-  console.log("Country:", country);
-
   return country;
 }
 
@@ -63,8 +58,6 @@ export async function getFreshCountries(limit = 20) {
   const payload = await checkResponse(res, "fresh countries").json();
 
   const countries = payload.data?.objects ?? [];
-
-  console.log("Fresh countries:", countries);
 
   return countries.slice(0, limit);
 }

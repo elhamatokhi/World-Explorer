@@ -1,10 +1,12 @@
 import Link from "next/link";
+import { getFreshCountries } from "./lib/api";
+import CountryCard from "@/components/CountryCard";
 
-export default function Home() {
+export default async function Home() {
+  const countries = await getFreshCountries(8);
   return (
     <section className="py-16 lg:py-24">
       <div className="mx-auto max-w-4xl text-center">
-
         <h1 className="text-5xl font-bold tracking-tight text-stone-900 sm:text-6xl">
           Discover Our World
         </h1>
@@ -31,6 +33,22 @@ export default function Home() {
           </Link>
         </div>
 
+        <br></br>
+        <section>
+          <h2 className="mb-6 text-3xl font-semibold">
+            Freshly Fetched Countries
+          </h2>
+
+          <p className="mt-4 rounded-lg bg-blue-50 p-4 text-blue-800">
+            <code>cache: "no-store"</code>
+          </p>
+          <br></br>
+          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+            {countries.map((country) => (
+              <CountryCard key={country.codes.alpha_3} country={country} />
+            ))}
+          </div>
+        </section>
       </div>
     </section>
   );
