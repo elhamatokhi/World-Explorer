@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { getCountryByCode } from "@/app/lib/api";
+import Link from "next/link";
 
 // Generate a unique title and description for each country page.
 export async function generateMetadata({ params }) {
@@ -20,7 +21,7 @@ export async function generateMetadata({ params }) {
 }
 
 export default async function CountryDetailsPage({ params }) {
-  // Await params in Next.js 15
+  // Await params 
   const { code } = await params;
 
   let country = null;
@@ -113,7 +114,13 @@ return (
         >
             📍 View on Google Maps
         </a>
-            
+
+            <Link
+            href="/countries"
+            className="ml-4 inline-flex items-center rounded-lg border border-gray-300 px-5 py-3 font-medium text-gray-700 transition hover:bg-gray-100"
+            >
+            ← Back to Countries
+            </Link>
       </div>
     </div>
   </main>

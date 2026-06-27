@@ -5,7 +5,7 @@ export default function CountryCard({ country }) {
   const flag = country.flag?.url_svg || country.flag?.url_png;
 
   return (
-    <Link href={`/countries/${country.codes.alpha_3}`}>
+    <Link href={`/countries/${country.codes.alpha_3}`} title="View details" >
       <article className="overflow-hidden rounded-lg border shadow-sm transition hover:shadow-lg">
         {flag && (
           <Image
